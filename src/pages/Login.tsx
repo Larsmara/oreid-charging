@@ -1,37 +1,48 @@
-import { useState } from "react";
-import { redirect } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
-function App() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+export const LoginPage = () => {
+    const { login } = useAuth();
 
-    const handleLogin = () => {
-        redirect("/");
+    const handleSubmit = (event: any) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        login({
+            email: data.get("email"),
+            password: data.get("password")
+        });
     };
 
     return (
-        <div className="flex flex-col h-screen justify-center items-center">
-            <h1 className="mb-6">Logg inn</h1>
-            <div className="flex flex-col gap-4 w-80">
+        <div className="h-screen flex flex-col w-2/4 ml-auto mr-auto justify-center">
+            <h1 className="text-center">Logg inn</h1>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6 mt-6">
                 <input
-                    type="text"
+                    required
+                    className="w-full"
+                    id="email"
+                    name="email"
+                    autoComplete="email"
+                    autoFocus
                     placeholder="E-post"
-                    value={username}
-                    onChange={(event) => setUsername(event.target.value)}
                 />
                 <input
-                    type="password"
+                    required
                     placeholder="Passord"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
+                    className="w-full"
+                    name="password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
                 />
-
-                <button className="w-full" onClick={handleLogin}>
-                    Logg inn
+                <button type="submit" className="w-full">
+                    Logg in
                 </button>
-            </div>
+                {/* <div>
+                    <div>
+                        <RouterLink to="/register">Don't have an account? Sign Up</RouterLink>
+                    </div>
+                </div> */}
+            </form>
         </div>
     );
-}
-
-export default App;
+};

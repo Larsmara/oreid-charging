@@ -1,23 +1,41 @@
-import { useEffect, useState } from "react";
-import { Outlet, redirect } from "react-router-dom";
+import { Route, createBrowserRouter, createRoutesFromElements, defer } from "react-router-dom";
+import { LoginPage } from "./pages/Login";
+import { HomePage } from "./pages/Home";
+import { Report } from "./pages/Report";
+import { ProtectedLayout } from "./components/ProtectedLayout";
+import { AuthLayout } from "./components/AuthLayout";
 
-function App() {
-    const [user, setUser] = useState(null);
+// ideally this would be an API call to server to get logged in user data
 
-    useEffect(() => {
-        if (user) {
-            redirect("/");
-        } else {
-            redirect("/login");
-        }
-    }, []);
-
-    return (
-        <div className="flex flex-col h-screen justify-center items-center">
-            <h1 className="mb-6">Home</h1>
-            <Outlet />
-        </div>
+const getUserData = () =>
+    new Promise((resolve) =>
+        setTimeout(() => {
+            const user = window.localStorage.getItem("user");
+            resolve(user);
+        }, 500)
     );
-}
 
-export default App;
+// for error
+// const getUserData = () =>
+//   new Promise((resolve, reject) =>
+//     setTimeout(() => {
+//       reject("Error");
+//     }, 3000)
+//   );
+
+export const router = createBrowserRouter(
+    createRoutesFromElements(
+        <Route
+            element={<AuthLayout />}
+            errorElement={<p>Error</p>}
+            loader={() => defer({ userPromise: getUserData() })}
+        >
+            <Route element={<ProtectedLayout />}>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/rapport" element={<Report />} />
+            </Route>
+
+            <Route path="/login" element={<LoginPage />} />
+        </Route>
+    )
+);
