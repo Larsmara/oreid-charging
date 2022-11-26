@@ -24,7 +24,7 @@ export const ChargerExpand = ({ chargerInfo }: ChargerExpandProps): ReactElement
         <details className="p-2 border-2 rounded-md border-cyan-600">
             <summary>{chargerInfo.id}</summary>
             {chargerInfo.entries.map((item) => (
-                <EntryInfo key={item.totalEnergyUsage} entry={item} />
+                <EntryInfo key={item.totalEnergyUsage.toString()} entry={item} />
             ))}
         </details>
     );
