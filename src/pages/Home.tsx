@@ -42,7 +42,7 @@ export const HomePage = () => {
             <nav className="flex flex-col w-1/5">
                 <h4 className="text-lg text-center border-b-2 border-b-stone-700">Ladere</h4>
                 {chargers.map(({ id, name }: { id: string; name: string }) => (
-                    <ChargerCard key={id} id={id} name={name} handleChargerSelect={selectCharger} />
+                    <ChargerCard key={id} id={id} name={name} selected={selected} handleChargerSelect={selectCharger} />
                 ))}
             </nav>
             <div className="w-full">

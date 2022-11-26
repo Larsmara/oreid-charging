@@ -1,10 +1,10 @@
 import { ReactElement, useEffect, useState } from "react";
-import { ChargerData, TotalChargeData, useChargerData } from "../hooks/useChargerData";
-
+import { ChargerData, useChargerData } from "../hooks/useChargerData";
+import { stromPris } from "../data/strompriser";
 interface ChargerDataInfoProps {
     selectedId: string;
 }
-const month = {
+const month: any = {
     1: "Jan",
     2: "Feb",
     3: "Mar",
@@ -19,7 +19,7 @@ const month = {
     12: "Dec"
 };
 
-export const ChargerDataInfo = ({ selectedId }: ChargerDataInfoProps) => {
+export const ChargerDataInfo = ({ selectedId }: ChargerDataInfoProps): ReactElement => {
     const { getDataWithId, getTotalDataWithId } = useChargerData();
     const [data, setData] = useState<ChargerData>();
 
@@ -33,12 +33,24 @@ export const ChargerDataInfo = ({ selectedId }: ChargerDataInfoProps) => {
         return total ? total : null;
     };
 
+    const getTotalSum = () => {
+        let totalPrice = 0;
+
+        data?.entries.forEach((item) => (totalPrice += (item.totalEnergyUsage * stromPris[item.year][item.month]) / 60));
+        return new Intl.NumberFormat("en-IN", { maximumSignificantDigits: 6 }).format(totalPrice);
+    };
+
     return (
         <div className="flex flex-col">
             <h2 className="mb-4 text-center text-xl">{data?.id}</h2>
-            <div className="mb-4 text-center text-lg text-green-500">{getTotalEnergy(data?.entries)}</div>
+            {data ? (
+            <div className="flex flex-row justify-between mb-4 text-center text-lg">
+                <h4>Total pris: <span className="text-red-500">{getTotalSum()}</span></h4>
+                <h5>Totalt forbruk: <span className="text-green-500">{getTotalEnergy(data?.entries)}</span></h5>
+            </div>
+            ) : null}
             {data?.entries.map((item) => (
-                <div key={item.totalEnergyUsage} className="flex flex-row gap-4 mb-4 border-2 rounded-md p-2">
+                <div key={item.totalEnergyUsage} className="flex flex-row justify gap-4 mb-4 border-2 rounded-md p-2">
                     <p>{item.year}</p>
                     <p className="text-amber-400">{month[item.month]}</p>
                     <p>
@@ -48,6 +60,14 @@ export const ChargerDataInfo = ({ selectedId }: ChargerDataInfoProps) => {
                             )}
                         </span>
                         kWh
+                    </p>
+                    <p className="ml-auto text-green-700">
+                        Pris:{" "}
+                        <span className="text-orange-50">
+                            {new Intl.NumberFormat("en-IN", { maximumSignificantDigits: 6 }).format(
+                                (item.totalEnergyUsage * stromPris[item.year][item.month]) / 60
+                            )}
+                        </span>
                     </p>
                 </div>
             ))}
