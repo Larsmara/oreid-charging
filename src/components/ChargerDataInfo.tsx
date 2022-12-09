@@ -1,6 +1,6 @@
 import { ReactElement, useEffect, useState } from "react";
 import { ChargerData, useChargerData } from "../hooks/useChargerData";
-import { stromPris } from "../data/strompriser";
+import { prices } from "../data/prices";
 interface ChargerDataInfoProps {
     selectedId: string;
 }
@@ -36,7 +36,7 @@ export const ChargerDataInfo = ({ selectedId }: ChargerDataInfoProps): ReactElem
     const getTotalSum = () => {
         let totalPrice = 0;
 
-        data?.entries.forEach((item) => (totalPrice += (item.totalEnergyUsage * stromPris[item.year][item.month]) / 60));
+        data?.entries.forEach((item) => (totalPrice += (item.totalEnergyUsage * prices[item.year][item.month]) / 60));
         return new Intl.NumberFormat("en-IN", { maximumSignificantDigits: 6 }).format(totalPrice);
     };
 
@@ -44,10 +44,14 @@ export const ChargerDataInfo = ({ selectedId }: ChargerDataInfoProps): ReactElem
         <div className="flex flex-col">
             <h2 className="mb-4 text-center text-xl">{data?.id}</h2>
             {data ? (
-            <div className="flex flex-row justify-between mb-4 text-center text-lg">
-                <h4>Total pris: <span className="text-red-500">{getTotalSum()}</span></h4>
-                <h5>Totalt forbruk: <span className="text-green-500">{getTotalEnergy(data?.entries)}</span></h5>
-            </div>
+                <div className="flex flex-row justify-between mb-4 text-center text-lg">
+                    <h4>
+                        Total pris: <span className="text-red-500">{getTotalSum()}</span>
+                    </h4>
+                    <h5>
+                        Totalt forbruk: <span className="text-green-500">{getTotalEnergy(data?.entries)}</span>
+                    </h5>
+                </div>
             ) : null}
             {data?.entries.map((item) => (
                 <div key={item.totalEnergyUsage} className="flex flex-row justify gap-4 mb-4 border-2 rounded-md p-2">
@@ -65,7 +69,7 @@ export const ChargerDataInfo = ({ selectedId }: ChargerDataInfoProps): ReactElem
                         Pris:{" "}
                         <span className="text-orange-50">
                             {new Intl.NumberFormat("en-IN", { maximumSignificantDigits: 6 }).format(
-                                (item.totalEnergyUsage * stromPris[item.year][item.month]) / 60
+                                (item.totalEnergyUsage * prices[item.year][item.month]) / 60
                             )}
                         </span>
                     </p>

@@ -550,7 +550,7 @@ export const chargers = [
     },
     {
         id: "ECRSW7ME",
-        name: "ECRSW7ME",
+        name: "ECRSW7ME - PÅL",
         color: null,
         createdOn: "2021-02-12T15:21:55.671677",
         updatedOn: "2021-04-13T12:02:49.562896",

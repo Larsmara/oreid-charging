@@ -1,4 +1,4 @@
-export const stromPris = {
+export const prices = {
     2021: {
         1: Number(62.56),
         2: Number(68.13),
@@ -11,12 +11,12 @@ export const stromPris = {
         9: Number(135.46),
         10: Number(120.14),
         11: Number(132.91),
-        12: Number(221.41),
+        12: Number(221.41)
     },
     2022: {
         1: Number(175.79),
         2: Number(150.67),
-        3: Number(233.80),
+        3: Number(233.8),
         4: Number(217.49),
         5: Number(206.21),
         6: Number(187.74),
@@ -25,6 +25,6 @@ export const stromPris = {
         9: Number(448.36),
         10: Number(161.81),
         11: Number(0),
-        12: Number(0),
-    },
-}
+        12: Number(0)
+    }
+};
