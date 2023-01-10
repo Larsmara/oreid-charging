@@ -1,5 +1,6 @@
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import { EntryInfo } from "./EntryInfo";
+import { prices } from "../data/prices";
 
 export interface EntryData {
     authTokensUsage: string[];
@@ -20,6 +21,7 @@ export interface ChargerExpandProps {
 }
 
 export const ChargerReportInfo = ({ chargerInfo }: ChargerExpandProps): ReactElement => {
+
     return (
         <div className="mb-2">
             <div className="flex flex-row border-b-2 border-cyan-900">
@@ -28,7 +30,11 @@ export const ChargerReportInfo = ({ chargerInfo }: ChargerExpandProps): ReactEle
                 <p className="w-1/5 text-end">Forbruk</p>
             </div>
             {chargerInfo.entries.map((item) => (
-                <EntryInfo key={item.totalEnergyUsage.toString()} entry={item} id={chargerInfo.id} />
+                <EntryInfo
+                    key={item.totalEnergyUsage.toString()}
+                    entry={item}
+                    id={chargerInfo.id}
+                />
             ))}
         </div>
     );

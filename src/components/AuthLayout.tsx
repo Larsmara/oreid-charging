@@ -15,7 +15,7 @@ export const AuthLayout = () => {
                 children={(user) => (
                     <AuthProvider userData={user}>
                         <ChargerDataProvider>
-                            <div className="max-w-screen-lg ml-auto mr-auto p-6">{outlet}</div>
+                            <div data-theme="pink" className="max-w-screen-lg ml-auto mr-auto p-6">{outlet}</div>
                         </ChargerDataProvider>
                     </AuthProvider>
                 )}

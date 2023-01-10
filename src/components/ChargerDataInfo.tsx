@@ -46,10 +46,10 @@ export const ChargerDataInfo = ({ selectedId }: ChargerDataInfoProps): ReactElem
             {data ? (
                 <div className="flex flex-row justify-between mb-4 text-center text-lg">
                     <h4>
-                        Total pris: <span className="text-red-500">{getTotalSum()}</span>
+                        Total pris: <span className="text-red-500">{getTotalSum()} kr</span>
                     </h4>
                     <h5>
-                        Totalt forbruk: <span className="text-green-500">{getTotalEnergy(data?.entries)}</span>
+                        Totalt forbruk: <span className="text-green-500">{getTotalEnergy(data?.entries)} kWh</span>
                     </h5>
                 </div>
             ) : null}

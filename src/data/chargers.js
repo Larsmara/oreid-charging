@@ -1,39 +1,5 @@
 export const ECG7Y3AX = [
     {
-        year: 2021,
-        month: 10,
-        totalEnergyUsage: 37.584711999999996,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: [
-            {
-                rfidKey: "ECG7Y3AX",
-                energy: 37.584711999999996
-            }
-        ]
-    },
-    {
-        year: 2021,
-        month: 11,
-        totalEnergyUsage: 372.80245799999994,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: [
-            {
-                rfidKey: "ECG7Y3AX",
-                energy: 335.66941299999996
-            }
-        ]
-    },
-    {
-        year: 2021,
-        month: 12,
-        totalEnergyUsage: 356.71111599999995,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: []
-    },
-    {
         year: 2022,
         month: 1,
         totalEnergyUsage: 269.774969,
@@ -123,18 +89,6 @@ export const ECG7Y3AX = [
     }
 ];
 export const yearlyECG = [
-    {
-        year: 2021,
-        totalEnergyUsage: 767.098286,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: [
-            {
-                rfidKey: "ECG7Y3AX",
-                energy: 373.25412499999993
-            }
-        ]
-    },
     {
         year: 2022,
         totalEnergyUsage: 3062.4310860000014,
@@ -306,122 +260,6 @@ export const yearlyECH = [
 
 export const ECRSW7ME = [
     {
-        year: 2021,
-        month: 4,
-        totalEnergyUsage: 162.258314,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: [
-            {
-                rfidKey: "ECRSW7ME",
-                energy: 136.56016100000002
-            }
-        ]
-    },
-    {
-        year: 2021,
-        month: 5,
-        totalEnergyUsage: 254.553358,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: [
-            {
-                rfidKey: "ECRSW7ME",
-                energy: 254.553358
-            }
-        ]
-    },
-    {
-        year: 2021,
-        month: 6,
-        totalEnergyUsage: 247.02899299999996,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: [
-            {
-                rfidKey: "ECRSW7ME",
-                energy: 247.02899299999996
-            }
-        ]
-    },
-    {
-        year: 2021,
-        month: 7,
-        totalEnergyUsage: 162.623725,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: [
-            {
-                rfidKey: "ECRSW7ME",
-                energy: 162.623725
-            }
-        ]
-    },
-    {
-        year: 2021,
-        month: 8,
-        totalEnergyUsage: 334.6356190000001,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: [
-            {
-                rfidKey: "ECRSW7ME",
-                energy: 334.6356190000001
-            }
-        ]
-    },
-    {
-        year: 2021,
-        month: 9,
-        totalEnergyUsage: 161.552289,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: [
-            {
-                rfidKey: "ECRSW7ME",
-                energy: 161.552289
-            }
-        ]
-    },
-    {
-        year: 2021,
-        month: 10,
-        totalEnergyUsage: 57.888310999999995,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: [
-            {
-                rfidKey: "ECRSW7ME",
-                energy: 57.888310999999995
-            }
-        ]
-    },
-    {
-        year: 2021,
-        month: 11,
-        totalEnergyUsage: 214.66044399999998,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: [
-            {
-                rfidKey: "ECRSW7ME",
-                energy: 149.805704
-            },
-            {
-                rfidKey: "04D81622226F80",
-                energy: 64.85473999999999
-            }
-        ]
-    },
-    {
-        year: 2021,
-        month: 12,
-        totalEnergyUsage: 80.04513500000002,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: []
-    },
-    {
         year: 2022,
         month: 1,
         totalEnergyUsage: 60.411479,
@@ -496,22 +334,6 @@ export const ECRSW7ME = [
 ];
 export const yearlyECR = [
     {
-        year: 2021,
-        totalEnergyUsage: 1675.2461880000003,
-        totalCost: 0,
-        currencyId: "NOK",
-        authTokensUsage: [
-            {
-                rfidKey: "ECRSW7ME",
-                energy: 1504.6481599999997
-            },
-            {
-                rfidKey: "04D81622226F80",
-                energy: 64.85473999999999
-            }
-        ]
-    },
-    {
         year: 2022,
         totalEnergyUsage: 695.6139890000003,
         totalCost: 0,
@@ -541,7 +363,7 @@ export const chargers = [
     },
     {
         id: "ECHWB4YP",
-        name: "ECHWB4YP",
+        name: "ECHWB4YP - Villy",
         color: null,
         createdOn: "2021-10-08T07:00:43.09423",
         updatedOn: "2022-01-18T13:45:15.247087",
